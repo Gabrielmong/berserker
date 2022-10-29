@@ -1,5 +1,7 @@
 # ᛒᛖᚱᛊᛖᚱᚲᛖᚱ
 
+Some viking game
+
 ## Videogame's architecture and structure final proyect
 
 ## Lore ↓
