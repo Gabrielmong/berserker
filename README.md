@@ -12,7 +12,7 @@ Nuestro personaje principal hace referencia a un vikingo guerrero conocido como 
 
 ## Contributors
 
-  - Gabriel Monge
+  - Gabriel Monge Lizano
   - Esteban Salguero Vásquez
   - Lucía Rodríguez
   - Bradley Garita Brenes
