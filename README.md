@@ -15,7 +15,7 @@ Nuestro personaje principal hace referencia a un vikingo guerrero conocido como 
   - Gabriel Monge
   - Esteban Salguero Vásquez
   - Lucía Rodríguez
-  - Bradley Garita
+  - Bradley Garita Brenes
   - Rodrígo Fernandez Calderon
   
  
