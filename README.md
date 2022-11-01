@@ -13,7 +13,7 @@ Nuestro personaje principal hace referencia a un vikingo guerrero conocido como 
 ## Contributors
 
   - Gabriel Monge
-  - Esteban Salguero
+  - Esteban Salguero Vásquez
   - Lucía Rodríguez
   - Bradley Garita
   - Rodrígo Fernandez Calderon
