@@ -16,6 +16,6 @@ Nuestro personaje principal hace referencia a un vikingo guerrero conocido como 
   - Esteban Salguero
   - Lucía Rodríguez
   - Bradley Garita
-  - Rodrígo Fernandez
+  - Rodrígo Fernandez Calderon
   
  
