@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move System")]
     [SerializeField]
-    float speed = 4.0F;
+    float speed = 3.0F;
     [SerializeField]
     bool isFacingRight = true;
 
     [Header("Jump System")]
     [SerializeField]
-    float jumpPower = 4.0F;
+    float jumpPower = 6.0F;
     [SerializeField]
     LayerMask whatIsGround;
     [SerializeField]
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     float jumpCounter;
     Vector2 reverseGravity;
 
+    bool isRunning;
     bool grounded;
     void Start()
     {
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
+
+
         if (Input.GetButtonDown("Jump"))
         {
             // Permite el salto solamente cuando el personaje esta tocando el piso
@@ -100,8 +103,12 @@ public class PlayerController : MonoBehaviour
             {
                 grounded = isGrounded;
                 animator.SetTrigger("Grounded");
-            } 
+            }
         }
+
+        
+
+
     }
     void FixedUpdate()
     {
@@ -121,14 +128,32 @@ public class PlayerController : MonoBehaviour
             }
             grounded = false;
         }
-        
+
         if (animator.GetFloat("Speed") != Mathf.Abs(move.x))
         {
             animator.SetFloat("Speed", Mathf.Abs(move.x));
         }
+
+         if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetFloat("Speed", 2.0F);
+            speed = 6.0F;
+            isRunning = true;
+        }
+
+        if (isRunning) {
+            if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                animator.SetFloat("Speed", 1.0F);
+                speed = 3.0F;
+                isRunning = false;
+            }
+        }
         animator.ResetTrigger("Grounded");
         rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
+        Debug.Log("Speed: " + animator.GetFloat("Speed"));
         Flip();
+        
     }
     void Flip()
     {
