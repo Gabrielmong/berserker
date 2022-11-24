@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Reduce el salto en un 60%
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6F);
+                animator.ResetTrigger("Grounded");
             }
         }
         if (rb.velocity.y > 0.0F)
