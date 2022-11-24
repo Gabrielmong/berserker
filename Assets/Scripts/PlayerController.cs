@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         {
             // Cae con mayor velocidad que la utilizada en el ascenso
             rb.velocity -= reverseGravity * fallMultiplier * Time.deltaTime;
+            animator.SetBool("Falling", true);
         }
 
         if (!grounded)
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
             {
                 grounded = isGrounded;
                 animator.SetTrigger("Grounded");
+                animator.SetBool("Falling", false);
             }
         }
 
@@ -142,6 +144,7 @@ public class PlayerController : MonoBehaviour
             speed = 6.0F;
             isRunning = true;
         }
+        
 
         if (isRunning) {
             if (!Input.GetKey(KeyCode.LeftShift))
