@@ -149,8 +149,7 @@ public class PlayerController : MonoBehaviour
                 speed = 3.0F;
                 isRunning = false;
             }
-        }
-        
+        }     
         rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
         Debug.Log("Speed: " + animator.GetFloat("Speed"));
         animator.ResetTrigger("Grounded");
