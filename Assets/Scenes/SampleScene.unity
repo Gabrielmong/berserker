@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c746df667e79fdd46aad096581a89e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.4, y: 0.4}
+  parallaxEffectMultiplier: {x: 0.5, y: 0.5}
 --- !u!212 &39154228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1914982498}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.0968328
+    OrthographicSize: 7.3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -284,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302721673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.35, y: -1.6599993, z: -9.958375}
+  m_LocalPosition: {x: -7.28, y: 1.4799995, z: -9.958375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,7 +378,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.0968328
+  orthographic size: 7.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -402,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.35, y: -1.6599993, z: -9.958375}
+  m_LocalPosition: {x: -7.28, y: 1.4799995, z: -9.958375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -488,6 +488,8 @@ GameObject:
   - component: {fileID: 636383817}
   - component: {fileID: 636383816}
   - component: {fileID: 636383815}
+  - component: {fileID: 636383819}
+  - component: {fileID: 636383818}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
@@ -3115,6 +3117,49 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &636383818
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636383813}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &636383819
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636383813}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &674481450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,7 +3234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 9c408a61613c30448a7310007444925c, type: 3}
+  m_Sprite: {fileID: 1059841677, guid: 7f7bb1280a199af488d095ff76729ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3267,7 +3312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 2.0800004, y: 1.3600007, z: -10}
+  m_FollowOffset: {x: 2.15, y: 4.4999995, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3404,7 +3449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c746df667e79fdd46aad096581a89e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.5, y: 0.5}
+  parallaxEffectMultiplier: {x: 0.4, y: 0.6}
 --- !u!212 &1196442255
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3517,7 +3562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416731771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2000003, y: 0.30000007, z: 9.958375}
+  m_LocalPosition: {x: -1.2000003, y: 0.75, z: 9.958375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3536,7 +3581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c746df667e79fdd46aad096581a89e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.3, y: 0.3}
+  parallaxEffectMultiplier: {x: 0.6, y: 1}
 --- !u!212 &1416731774
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3614,8 +3659,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841892197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.041, y: -0.2325, z: 0}
-  m_LocalScale: {x: 0.918, y: 0.7675431, z: 1}
+  m_LocalPosition: {x: -0.005, y: -0.0802, z: 0}
+  m_LocalScale: {x: 1.0453597, y: 0.903184, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1914982498}
@@ -3712,7 +3757,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 9113c1eb2a875fc4c87fa4873a36d8fb, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &1914982497
 CapsuleCollider2D:
@@ -3727,8 +3772,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02393049, y: -0.22228563}
-  m_Size: {x: 0.87605107, y: 1.5524952}
+  m_Offset: {x: -0.02393049, y: -0.031752706}
+  m_Size: {x: 0.87605107, y: 1.813997}
   m_Direction: 0
 --- !u!4 &1914982498
 Transform:
@@ -3793,7 +3838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057181989}
   - component: {fileID: 2057181990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
