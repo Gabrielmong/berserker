@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (rb.velocity.y > 0.0F)
+        Debug.Log(rb.velocity.y);
+        if (rb.velocity.y > 1.2F)
         {
             if (animator.GetFloat("Power") != 1.0F)
             {
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
             }
             grounded = false;
         }
-        else if (rb.velocity.y < 0.0F)
+        else if (rb.velocity.y < -1.2F)
         {
             if (animator.GetFloat("Power") != -1.0F)
             {
@@ -149,9 +150,10 @@ public class PlayerController : MonoBehaviour
                 isRunning = false;
             }
         }
-        animator.ResetTrigger("Grounded");
+        
         rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
         Debug.Log("Speed: " + animator.GetFloat("Speed"));
+        animator.ResetTrigger("Grounded");
         Flip();
         
     }
