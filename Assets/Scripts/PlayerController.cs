@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move System")]
     [SerializeField]
-    float speed = 3.0F;
+    float speed = 2.2F;
     [SerializeField]
     bool isFacingRight = true;
 
@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     bool isRunning;
     bool grounded;
+
+    bool isAttacking;
     void Start()
     {
         wasFacingRight = isFacingRight;
@@ -50,9 +52,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
-
-
+        if (!isAttacking)
+        {
+            move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
+        }
+        
         if (Input.GetButtonDown("Jump"))
         {
             // Permite el salto solamente cuando el personaje esta tocando el piso
@@ -109,10 +113,52 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
+        // light attack when player presses e
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(LightAttack());
+        }
+
+        // heavy attack when player presses q
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StartCoroutine(HeavyAttack());
+        }
 
 
     }
+
+    IEnumerator LightAttack()
+    {
+        isAttacking = true;
+        // stop player from moving
+        move = Vector2.zero;
+        // play light attack animation
+        animator.SetTrigger("LightAttack");
+        // wait for animation to finish
+        yield return new WaitForSeconds(0.43f);
+        // resume player movement
+        move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
+        isAttacking = false;
+        animator.ResetTrigger("LightAttack");
+    }
+
+    IEnumerator HeavyAttack()
+    {
+        isAttacking = true;
+        // stop player from moving for a short time
+        move = Vector2.zero;
+        // play heavy attack animation
+        animator.SetTrigger("HeavyAttack");
+        // wait for a short time
+        yield return new WaitForSeconds(0.43f);
+        // resume player movement
+        move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
+        isAttacking = false;
+        animator.ResetTrigger("HeavyAttack");
+    }
+
+
     void FixedUpdate()
     {
         Debug.Log(rb.velocity.y);
@@ -138,27 +184,28 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", Mathf.Abs(move.x));
         }
 
-         if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             animator.SetFloat("Speed", 2.0F);
             speed = 6.0F;
             isRunning = true;
         }
-        
 
-        if (isRunning) {
+
+        if (isRunning)
+        {
             if (!Input.GetKey(KeyCode.LeftShift))
             {
                 animator.SetFloat("Speed", 1.0F);
-                speed = 3.0F;
+                speed = 2.2F;
                 isRunning = false;
             }
-        }     
+        }
         rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
         Debug.Log("Speed: " + animator.GetFloat("Speed"));
         animator.ResetTrigger("Grounded");
         Flip();
-        
+
     }
     void Flip()
     {

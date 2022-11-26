@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - Ground
+  - Platform
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 4287523713
+    locked: 0
+  - name: Environment2
+    uniqueID: 1267113013
     locked: 0
