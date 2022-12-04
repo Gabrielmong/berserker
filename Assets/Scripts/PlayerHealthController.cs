@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthController : MonoBehaviour
+public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField]
     float maxHealth = 100.0F;
@@ -12,10 +12,10 @@ public class HealthController : MonoBehaviour
     float currentHealth;
 
     [SerializeField]
-    public UnityEvent<GameObject, float, float> onDamage;
+    public UnityEvent<GameObject, float, float> onPlayerDamage;
 
     [SerializeField]
-    public UnityEvent<GameObject> onDie;
+    public UnityEvent<GameObject> onPlayerDie;
 
     void Start()
     {
@@ -26,18 +26,19 @@ public class HealthController : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (onDamage != null)
+        if (onPlayerDamage != null)
         {
-            onDamage.Invoke(gameObject, damage, currentHealth);
+            
+            onPlayerDamage.Invoke(gameObject, damage, currentHealth);
         }
 
         
 
         if (currentHealth <= 0.0F)
         {
-            if (onDie != null)
+            if (onPlayerDie != null)
             {
-                onDie.Invoke(gameObject);
+                onPlayerDie.Invoke(gameObject);
             }
         }
     }
