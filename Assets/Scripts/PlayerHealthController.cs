@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField]
-    float maxHealth = 100.0F;
+    public float maxHealth = 100.0F;
 
     [SerializeField]
-    float currentHealth;
+    public float currentHealth;
 
     [SerializeField]
     public UnityEvent<GameObject, float, float> onPlayerDamage;

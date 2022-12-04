@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class EnemyHealthController : MonoBehaviour
 {
     [SerializeField]
-    float maxHealth = 100.0F;
+    public float maxHealth = 100.0F;
 
     [SerializeField]
-    float currentHealth;
+    public float currentHealth;
 
     [SerializeField]
     public UnityEvent<GameObject, float, float> onEnemyDamage;
@@ -20,6 +20,14 @@ public class EnemyHealthController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        if (currentHealth < 0.0F)
+        {
+            currentHealth = 0.0F;
+        }
     }
 
     public void TakeDamage(float damage)

@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     float jumpPower = 6.0F;
     [SerializeField]
+    float attackRange;
+    [SerializeField]
+    float walkingDistance;
+    [SerializeField]
     LayerMask whatIsGround;
     [SerializeField]
     Transform groundCheck;
@@ -61,8 +65,8 @@ public class EnemyController : MonoBehaviour
             GameObject player = GameObject.Find("Player");
             // get the distance between the player and the enemy
             float distance = Vector2.Distance(player.transform.position, transform.position);
-            // if the distance is less than 2, then attack
-            if (!isAttacking && distance < 1.5)
+            // if the attack point is colliding with the player, attack
+            if (!isAttacking && distance < attackRange)
             {
                 // stop the patrol
                 StopCoroutine(Patrol());
@@ -85,14 +89,14 @@ public class EnemyController : MonoBehaviour
             else
             {
                 isAttacking = false;
-                if (!isPatroling && distance > 4)
+                if (!isPatroling && distance > walkingDistance)
                 {
                     StartCoroutine(Patrol());
                 }
             }
 
             // if the distance is greater than 2, but less than 5, then chase
-            if (distance < 5 && distance > 2)
+            if (distance < 5 && distance > walkingDistance)
             {
                 // stop the patrol
                 StopCoroutine(Patrol());
