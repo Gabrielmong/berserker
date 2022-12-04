@@ -131,37 +131,24 @@ public class PlayerController : MonoBehaviour
     IEnumerator LightAttack()
     {
         isAttacking = true;
-        // stop player from moving
         move = Vector2.zero;
-        // play light attack animation
-        animator.SetTrigger("LightAttack");
-        // wait for animation to finish
         yield return new WaitForSeconds(0.43f);
-        // resume player movement
         move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
         isAttacking = false;
-        animator.ResetTrigger("LightAttack");
     }
 
     IEnumerator HeavyAttack()
     {
         isAttacking = true;
-        // stop player from moving for a short time
         move = Vector2.zero;
-        // play heavy attack animation
-        animator.SetTrigger("HeavyAttack");
-        // wait for a short time
         yield return new WaitForSeconds(0.43f);
-        // resume player movement
         move = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0F);
         isAttacking = false;
-        animator.ResetTrigger("HeavyAttack");
     }
 
 
     void FixedUpdate()
     {
-        Debug.Log(rb.velocity.y);
         if (rb.velocity.y > 1.2F)
         {
             if (animator.GetFloat("Power") != 1.0F)
@@ -202,7 +189,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
-        Debug.Log("Speed: " + animator.GetFloat("Speed"));
         animator.ResetTrigger("Grounded");
         Flip();
 
@@ -237,4 +223,19 @@ public class PlayerController : MonoBehaviour
                     whatIsGround
                 );
     }
+
+    public void OnDie() { 
+
+        // trigger die animation
+        animator.SetTrigger("Die");
+
+    }
+
+    public void onDamage()
+    {
+        animator.SetTrigger("Damage");
+    }
+    
+
+
 }

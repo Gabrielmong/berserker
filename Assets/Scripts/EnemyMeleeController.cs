@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeController : MonoBehaviour
+public class EnemyMeleeController : MonoBehaviour
 {
     [SerializeField]
     LayerMask whatIsEnemy;
@@ -29,28 +29,33 @@ public class MeleeController : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<CombatController>()?.onAttack.AddListener(Attack);
+        // find all the combat controllers in the scene
+        var combatControllers = FindObjectsOfType<EnemyCombatController>();
+
+        // loop through all the combat controllers
+        foreach (var combatController in combatControllers)
+        {
+            // add the Attack method to the onAttack event
+            combatController.onEnemyAttack.AddListener(Attack);
+        }
+
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E)) {
-            if (Time.time >= nextAttackTime) {
-                nextAttackTime = Time.time + 1.0F / attackRate;
-                animator.SetTrigger("LightAttack");
-            }
-        }
+        
     }
 
     void Attack()
     {
+        Debug.Log("Enemy Attack");
         Collider2D[] colliders
             = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, whatIsEnemy);
 
         foreach (Collider2D collider in colliders)
         {
-            HealthController controller = collider.GetComponent<HealthController>();
-
+            PlayerHealthController controller = collider.GetComponent<PlayerHealthController>();
+            Debug.Log("Collding with " + collider.name);
             if (controller != null)
             {
                 controller.TakeDamage(attackDamage);
@@ -58,8 +63,7 @@ public class MeleeController : MonoBehaviour
             
         }
 
-        animator.ResetTrigger("LightAttack");
-        animator.ResetTrigger("HeavyAttack");
+        animator.ResetTrigger("Attack");
     }
 
     void OnDrawGizmosSelected()
