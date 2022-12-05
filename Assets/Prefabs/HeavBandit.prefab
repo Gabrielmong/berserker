@@ -180,7 +180,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   attackPoint: {fileID: 2104148668265437972}
-  attackRange: 0
+  attackRange: 0.45
   attackCooldown: 1
   attackRate: 1
   attackDamage: 25
@@ -202,7 +202,7 @@ MonoBehaviour:
   speed: 2.2
   isFacingRight: 1
   jumpPower: 6
-  attackRange: 1.1
+  attackRange: 1
   walkingDistance: 2
   whatIsGround:
     serializedVersion: 2
@@ -223,8 +223,9 @@ GameObject:
   - component: {fileID: 2104148668903497132}
   - component: {fileID: 2104148668903497135}
   - component: {fileID: 3735796462534944249}
+  - component: {fileID: 5179578200965838109}
   m_Layer: 10
-  m_Name: HeavyBandit_0
+  m_Name: HeavyBandit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,6 +333,26 @@ MonoBehaviour:
   onEnemyAttack:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5179578200965838109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104148668903497106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0334eac78361c114facc4c589ad59e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: 48137333a36fc4846a8e1e360d4d9270, type: 3}
+  deathSoundOptional: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: d628761d93195a641a8fb1c4398342d8, type: 3}
+  hurtSound2: {fileID: 8300000, guid: 375f7c74ed98fdc4d9a2f1d2b2bea740, type: 3}
+  hurtSound3: {fileID: 8300000, guid: 53678b431da52254c815aae1d8924346, type: 3}
+  attackSound: {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
+  walkSound: {fileID: 8300000, guid: 5d8455fb534849442ad490965ff71279, type: 3}
+  hitSound: {fileID: 8300000, guid: 80151380c0f818243b66a78ef69c9fcd, type: 3}
 --- !u!1 &2104148669209975980
 GameObject:
   m_ObjectHideFlags: 0
