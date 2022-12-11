@@ -60,5 +60,10 @@ public class StateController : MonoBehaviour
             PauseMenu?.SetActive(true);
             PauseGame();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ResumeGame();
+        }
     }
 }
