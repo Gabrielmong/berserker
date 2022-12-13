@@ -28,12 +28,7 @@ public class StateController : MonoBehaviour
             audioSource.loop = true;
             audioSource.volume = musicVolume;
             audioSource.Play();
-
-
-
         }
-
-
     }
 
     // function to pause the game
